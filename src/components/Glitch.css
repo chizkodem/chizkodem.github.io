@@ -1,0 +1,143 @@
+:root {
+  --common-color: rgb(0, 0, 0);
+  --header-background-color: rgba(255, 255, 255, 0.384);
+  --header-border-color: rgba(255, 255, 255, 0.753);
+  --header-shadow-color: rgba(53, 53, 53, 0.308);
+  --plschange-color: rgb(0, 0, 0);
+  --plschange-color-2: white;
+  --body-color: rgba(255, 255, 255, 0);
+  --attach-color: rgba(255, 255, 255, 0.644);
+  --navbar-img: invert(0);
+  --light-box-background: rgba(212, 212, 212, 0.774);
+  --active-img-btn-color: rgba(62, 170, 76, 0.671);
+  --top-glow-color: rgb(233, 75, 233);
+  --bottom-glow-color: rgb(0, 255, 213);
+  --top-text-glow-color: #59ceeb;
+  --bottom-text-glow-color: #e65ee6;
+}
+
+.image-buttons {
+  margin-bottom: 10px;
+}
+
+.img-btns {
+  padding: 10px 3vw;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  color: var(--plschange-color);
+  background-color: transparent;
+  position: relative;
+}
+.img-btns::after {
+  padding: 10px 3vw;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  color: var(--plschange-color-2);
+  background-color: transparent;
+  position: relative;
+}
+
+.img-btns::after {
+  --move1: inset(50% 50% 50% 50%);
+  --move2: inset(31% 0 40% 0);
+  --move3: inset(39% 0 15% 0);
+  --move4: inset(45% 0 40% 0);
+  --move5: inset(45% 0 6% 0);
+  --move6: inset(14% 0 61% 0);
+  clip-path: var(--move1);
+  content: "CHIZ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+}
+
+.img-btns.active::after {
+  animation: glitch_4011 1s;
+  text-shadow: 10 10px 10px black;
+  animation-timing-function: steps(2, end);
+  animation-iteration-count: 1.5;
+  text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #e94be8;
+  background-color: transparent;
+  border: 3px solid rgb(0, 255, 213);
+  color: var(--plschange-color-2);
+}
+
+.img-btns.active {
+  text-shadow: -1px -1px 0px #1df2f0, 1px 1px 0px #e94be8;
+}
+
+.img-btns.active {
+  background-color: transparent;
+  border: 1px solid rgb(0, 255, 213);
+  box-shadow: 0px 10px 10px -10px rgb(0, 255, 213);
+  color: var(--plschange-color);
+}
+
+@keyframes glitch_4011 {
+  0% {
+    clip-path: var(--move1);
+    transform: translate(0px, -10px);
+  }
+
+  10% {
+    clip-path: var(--move2);
+    transform: translate(-10px, 10px);
+  }
+
+  20% {
+    clip-path: var(--move3);
+    transform: translate(10px, 0px);
+  }
+
+  30% {
+    clip-path: var(--move4);
+    transform: translate(-10px, 10px);
+  }
+
+  40% {
+    clip-path: var(--move5);
+    transform: translate(10px, -10px);
+  }
+
+  50% {
+    clip-path: var(--move6);
+    transform: translate(-10px, 10px);
+  }
+
+  60% {
+    clip-path: var(--move1);
+    transform: translate(10px, -10px);
+  }
+
+  70% {
+    clip-path: var(--move3);
+    transform: translate(-10px, 10px);
+  }
+
+  80% {
+    clip-path: var(--move2);
+    transform: translate(10px, -10px);
+  }
+
+  90% {
+    clip-path: var(--move4);
+    transform: translate(-10px, 10px);
+  }
+
+  100% {
+    clip-path: var(--move1);
+    transform: translate(0);
+  }
+}
+
+@media (max-width: 500px) {
+  .img-btns,
+  .img-btns::after {
+    font-size: 3vw;
+  }
+}
