@@ -7,7 +7,7 @@ const changeImg = (src) => {
   img.src = src;
 };
 
-const callLoadImg = (gunName, attachSrc) => {
+const callLoadImg = (gunName, attachSrc, src) => {
   const attachImgLoad = document.querySelector(".attach-img.load");
   attachImgLoad.style.height = `0px`;
   attachImgLoad.style.opacity = "0%";
@@ -15,8 +15,10 @@ const callLoadImg = (gunName, attachSrc) => {
 
   const loadingIcon = document.getElementById("loading-icon");
   loadingIcon.style.display = "block";
+  // console.log(src);
+
   setTimeout(() => {
-    loadingImg(gunName, attachSrc);
+    loadingImg(gunName, attachSrc, src);
   }, 500);
 };
 
@@ -55,7 +57,7 @@ const Lightboxbtn = ({list, gunName, attachSrc}) => {
       const Srcs = list || []; // Ensure Srcs is an array
       const newButtons = Array(Srcs.length).fill(null); // Pre-fill an array with the same length
       let processedImages = 0;
-      console.log(newButtons);
+      // console.log(newButtons);
 
       Srcs.forEach((src, index) => {
         const image = new Image();
@@ -64,7 +66,6 @@ const Lightboxbtn = ({list, gunName, attachSrc}) => {
         image.onload = () => {
           newButtons[index] = src; // Ensure images are stored at their original index
           processedImages++;
-          console.log(newButtons);
 
           // Only set the buttons once all images are either loaded or errored
           if (processedImages === Srcs.length) {
@@ -94,7 +95,7 @@ const Lightboxbtn = ({list, gunName, attachSrc}) => {
   const callFunctions = (src, index) => {
     changeImg(src);
     setSelected(index);
-    callLoadImg(gunName, attachSrc);
+    callLoadImg(gunName, attachSrc, src);
   };
 
   const renderButtons = () => {

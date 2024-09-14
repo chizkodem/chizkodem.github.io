@@ -6,10 +6,29 @@ export const functionTest = (imageVariations) => {
   imgSrcs = imageVariations;
 };
 
-export const loadingImg = (gunName, attachSrc) => {
-  const src = `${attachSrc}${gunName}.jpg`;
+const getAttachName = (gunName, attachSrc, tempSrc) => {
+  // console.log(tempSrc);
+  if (tempSrc) {
+    if (
+      tempSrc.includes("red-dot-type") ||
+      tempSrc.includes("pin-point") ||
+      tempSrc.includes("ar-type") ||
+      tempSrc.includes("burst-type") ||
+      tempSrc.includes("smg-type") ||
+      tempSrc.includes("gyro") ||
+      tempSrc.includes("sniper")
+    ) {
+      return tempSrc;
+    } else return `${attachSrc}${gunName}.jpg`;
+  } else return `${attachSrc}${gunName}.jpg`;
+};
+
+export const loadingImg = (gunName, attachSrc, tempSrc) => {
+  const src = getAttachName(gunName, attachSrc, tempSrc);
   const image = new Image();
   image.src = src;
+
+  console.log(tempSrc);
 
   image.onload = () => {
     const attachImg = document.getElementById("img");

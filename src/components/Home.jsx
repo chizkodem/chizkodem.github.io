@@ -58,10 +58,9 @@ const Home = () => {
           <iframe
             src="https://www.youtube.com/embed/TggiMHqrD5Y?controls=0"
             title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; loop; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen=""
-            autoplay=""
+            allowFullScreen
+            autoPlay
           ></iframe>
         </div>
       </div>

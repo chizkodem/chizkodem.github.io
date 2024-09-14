@@ -103,7 +103,7 @@ const highLight = (highLight) => {
     }
   }, 500);
 
-  console.log(highLight);
+  // console.log(highLight);
 };
 
 const Weapons = ({gunList, openLightbox}) => {
@@ -124,8 +124,6 @@ const Weapons = ({gunList, openLightbox}) => {
             // console.log("The section is now visible");
             highLight(mutation.target.children[0].children[0].innerText);
           } else {
-            console.log("test");
-
             // highLight(mutation);
           }
         }
