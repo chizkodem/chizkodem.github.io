@@ -1,7 +1,15 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import Typed from "typed.js";
+import TypingEffect from "./TypingEffect";
 
 const Home = () => {
+  const text = `This is what I've been working on for the past few days. I made
+              this for you so you can get any of my favorite attachments. This
+              is not finished yet, I'll update this once in a while. So if you
+              find an error or a mistake like the gun's name or an image not
+              showing, feel free to message me. the links are down below,
+              thanks!`;
+
   useEffect(() => {
     const options = {
       strings: ["Content Creator", "Tiktoker", "Gamer", "Programmer"],
@@ -18,6 +26,7 @@ const Home = () => {
       typed.destroy();
     };
   }, []);
+
   return (
     <section className="home" id="HOME">
       <div class="home-content">
@@ -35,20 +44,21 @@ const Home = () => {
             </h3>
           </div>
           <div class="hero-para">
-            <p>
-              This is what I've been working on for the past few days. I made
-              this for you so you can get any of my favorite attachments. This
-              is not finished yet, I'll update this once in a while. So if you
-              find an error or a mistake like the gun's name or an image not
-              showing, feel free to message me. the links are down below,
-              thanks!
-            </p>
+            <TypingEffect text={text} speed={5} />
           </div>
           <div class="btn-box">
-            <a href="https://discord.gg/DcdT8DZfsD" target="_blank">
+            <a
+              href="https://discord.gg/DcdT8DZfsD"
+              target="_blank"
+              id="home-left-btn"
+            >
               Join DC
             </a>
-            <a href="https://www.facebook.com/jozephjrperez" target="_blank">
+            <a
+              href="https://www.facebook.com/jozephjrperez"
+              target="_blank"
+              id="home-right-btn"
+            >
               Add me
             </a>
           </div>
@@ -56,11 +66,10 @@ const Home = () => {
 
         <div class="home-vid">
           <iframe
-            src="https://www.youtube.com/embed/TggiMHqrD5Y?controls=0"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; loop; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            autoPlay
+            src="https://www.youtube.com/embed/TggiMHqrD5Y?autoplay=1&mute=1&loop=1&playlist=TggiMHqrD5Y&controls=0"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
           ></iframe>
         </div>
       </div>

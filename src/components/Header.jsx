@@ -1,12 +1,25 @@
-import {useState, useRef} from "react";
+import {useState, useRef, useEffect} from "react";
 
 const Header = ({onToggleLightbox}) => {
   const [isChecked, setIsChecked] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const collapseRef = useRef(null);
 
-  document.addEventListener("click", (event) => {
-    // console.log(event.target);
+  useEffect(() => {
+    const header = document.querySelector(".header");
+    const homeLeftBtn = document.getElementById("home-left-btn");
+    const homeRightBtn = document.getElementById("home-right-btn");
+    setTimeout(() => {
+      header.style.transform = "translatey(0)";
+      homeLeftBtn.style.transform = "translatex(0)";
+      homeRightBtn.style.transform = "translatey(0)";
+    }, 300);
+    setTimeout(() => {
+      header.style.padding = "20px 50px";
+    }, 400);
+  }, []);
 
+  document.addEventListener("click", (event) => {
     if (
       (!event.target.classList.contains("lightbox-content") &&
         event.target.classList.contains("toggle") &&
@@ -17,8 +30,26 @@ const Header = ({onToggleLightbox}) => {
     }
   });
 
-  const handleIsDarkCheckBox = (element) => {
-    if (element.target.checked) {
+  useEffect(() => {
+    // Retrieve and parse the saved theme from localStorage
+    const savedTheme = JSON.parse(localStorage.getItem("isDark"));
+    if (savedTheme !== null) {
+      console.log(savedTheme, "retrived");
+
+      setIsDark(savedTheme);
+      console.log(isDark);
+    }
+  }, []); // Empty dependency array ensures this runs only once
+
+  useEffect(() => {
+    localStorage.setItem("isDark", JSON.stringify(isDark));
+    // console.log(localStorage.isDark, "clicked");
+
+    loadUpTheme();
+  }, [isDark]); // Runs whenever 'isDark' changes
+
+  const loadUpTheme = () => {
+    if (isDark) {
       document.documentElement.style.setProperty(
         "--header-background-color",
         "rgba(73, 73, 73, 0.584)"
@@ -79,7 +110,7 @@ const Header = ({onToggleLightbox}) => {
         "--bottom-text-glow-color",
         "#a10aa1"
       );
-    } else {
+    } else if (!isDark) {
       document.documentElement.style.setProperty(
         "--header-background-color",
         "rgba(255, 255, 255, 0.384)"
@@ -135,6 +166,11 @@ const Header = ({onToggleLightbox}) => {
         "#e65ee6"
       );
     }
+  };
+
+  const handleIsDarkCheckBox = (element) => {
+    setIsDark(element.target.checked);
+    loadUpTheme();
   };
 
   const unCheck = () => {
