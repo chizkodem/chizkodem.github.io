@@ -9,14 +9,24 @@ const Header = ({onToggleLightbox}) => {
     const header = document.querySelector(".header");
     const homeLeftBtn = document.getElementById("home-left-btn");
     const homeRightBtn = document.getElementById("home-right-btn");
+    const homeH1 = document.querySelector(".home-content h1");
+    const homeH3 = document.querySelector(".home-content h3");
+    const homeVid = document.querySelector(".home-vid iframe");
     setTimeout(() => {
       header.style.transform = "translatey(0)";
-      homeLeftBtn.style.transform = "translatex(0)";
-      homeRightBtn.style.transform = "translatey(0)";
+      homeH1.style.transform = "translatey(0)";
+      homeH3.style.transform = "translatex(0)";
     }, 300);
     setTimeout(() => {
       header.style.padding = "20px 50px";
     }, 400);
+    setTimeout(() => {
+      homeVid.style.transform = "translateX(0)";
+    }, 1400);
+    setTimeout(() => {
+      homeLeftBtn.style.transform = "translatex(0)";
+      homeRightBtn.style.transform = "translatey(0)";
+    }, 1700);
   }, []);
 
   document.addEventListener("click", (event) => {

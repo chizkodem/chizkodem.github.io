@@ -44,7 +44,7 @@ const Home = () => {
             </h3>
           </div>
           <div class="hero-para">
-            <TypingEffect text={text} speed={5} />
+            <TypingEffect text={text} speed={2} />
           </div>
           <div class="btn-box">
             <a
