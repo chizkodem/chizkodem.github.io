@@ -218,14 +218,9 @@ body::before {
   border: 5px solid var(--plschange-color);
   border-radius: 1rem;
   width: 200px;
-  height: 200px;
+  height: 100px;
   overflow: hidden;
-  transition: 0.3s;
-}
-
-.lightbox-img-container.active {
-  width: 500px;
-  height: 500px;
+  transition: 0.5s;
 }
 
 .loading-icon-container {

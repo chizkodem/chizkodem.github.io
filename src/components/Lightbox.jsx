@@ -28,8 +28,6 @@ export const loadingImg = (gunName, attachSrc, tempSrc) => {
   const image = new Image();
   image.src = src;
 
-  console.log(tempSrc);
-
   image.onload = () => {
     const attachImg = document.getElementById("img");
     const loadingCover = document.getElementById("lightbox-cover");

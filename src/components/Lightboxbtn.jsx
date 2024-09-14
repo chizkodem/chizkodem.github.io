@@ -9,17 +9,19 @@ const changeImg = (src) => {
 
 const callLoadImg = (gunName, attachSrc, src) => {
   const attachImgLoad = document.querySelector(".attach-img.load");
-  attachImgLoad.style.height = `0px`;
-  attachImgLoad.style.opacity = "0%";
-  attachImgLoad.classList.remove("load");
+  if (attachImgLoad) {
+    attachImgLoad.style.height = `0px`;
+    attachImgLoad.style.opacity = "0%";
+    attachImgLoad.classList.remove("load");
 
-  const loadingIcon = document.getElementById("loading-icon");
-  loadingIcon.style.display = "block";
-  // console.log(src);
+    const loadingIcon = document.getElementById("loading-icon");
+    loadingIcon.style.display = "block";
+    // console.log(src);
 
-  setTimeout(() => {
-    loadingImg(gunName, attachSrc, src);
-  }, 500);
+    setTimeout(() => {
+      loadingImg(gunName, attachSrc, src);
+    }, 500);
+  }
 };
 
 const getAttachName = (src) => {
@@ -62,6 +64,7 @@ const Lightboxbtn = ({list, gunName, attachSrc}) => {
       Srcs.forEach((src, index) => {
         const image = new Image();
         image.src = src;
+        console.log(src);
 
         image.onload = () => {
           newButtons[index] = src; // Ensure images are stored at their original index
@@ -104,8 +107,6 @@ const Lightboxbtn = ({list, gunName, attachSrc}) => {
       if (button) buttonsLength.push(button);
     });
 
-    if (buttonsLength.length === 1) return null;
-
     return buttons.map((src, index) => {
       if (!src) return null;
 
@@ -117,6 +118,7 @@ const Lightboxbtn = ({list, gunName, attachSrc}) => {
           key={index}
           id={`img-btn-${index}`}
           onClick={() => {
+            if (index === selected) return;
             callFunctions(src, index);
           }}
         >
