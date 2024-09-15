@@ -47,7 +47,6 @@ const Header = ({onToggleLightbox}) => {
       console.log(savedTheme, "retrived");
 
       setIsDark(savedTheme);
-      console.log(isDark);
     }
   }, []); // Empty dependency array ensures this runs only once
 
@@ -208,7 +207,11 @@ const Header = ({onToggleLightbox}) => {
       <div className="logo-container">
         <a href="#HOME">Chiz</a>
         <label aria-checked="false" role="switch" className="switch">
-          <input type="checkbox" onChange={handleIsDarkCheckBox} />
+          <input
+            type="checkbox"
+            onChange={handleIsDarkCheckBox}
+            checked={isDark} // Bind the checkbox checked state to isDark
+          />
           <span className="slider">
             <span className="slider-inner"></span>
           </span>

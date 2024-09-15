@@ -142,6 +142,7 @@ body::before {
   max-width: 345px;
   width: 100%;
   height: 50px;
+  overflow: hidden;
 }
 
 .btn-box a:hover::before {
@@ -192,7 +193,7 @@ body::before {
   background: transparent;
   color: #00bbff;
   transition: 0.5s;
-  transform: translatey(100%);
+  transform: translatex(100%);
 }
 
 .btn-box a:nth-child(2)::before {
