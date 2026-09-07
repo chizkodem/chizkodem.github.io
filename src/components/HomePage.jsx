@@ -45,7 +45,7 @@ const HomePage = ({
             chaos={0.1}
             thickness={2}
             style={{ borderRadius: 16 }}
-            className={`w-[90vw] p-5 flex justify-center backdrop-blur-sm h-fit max-h-full`}
+            className={` p-5 flex justify-center backdrop-blur-sm h-fit max-h-full`}
           >
             <div className="category-buttons-container grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5 h-fit w-full max-w-[90vw]">
               {gunCategories.map((category, index) => (

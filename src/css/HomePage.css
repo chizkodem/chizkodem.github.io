@@ -118,6 +118,18 @@
   }
 }
 
+@media (max-width: 2000px) and (max-height: 870px) {
+  .category-buttons {
+    height: 120px;
+  }
+}
+
+@media (max-width: 2000px) and (max-height: 800px) {
+  .category-buttons {
+    height: 90px;
+  }
+}
+
 @media (max-height: 590px) {
   .homepage-container {
     font-size: 7px;
@@ -128,5 +140,26 @@
   }
   .category-buttons {
     height: 10vh;
+  }
+}
+
+@media (max-height: 870px) {
+  .category-buttons {
+    height: 70px;
+  }
+}
+
+@media (max-height: 800px) {
+  .category-buttons {
+    height: 60px;
+  }
+}
+
+@media (max-height: 680px) {
+  .homepage-container {
+    font-size: 7px;
+  }
+  .category-buttons {
+    height: 55px;
   }
 }
