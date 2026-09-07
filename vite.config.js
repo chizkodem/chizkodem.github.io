@@ -11,5 +11,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "chizkodem.github.io",
+  base: "/chizkodem.github.io/",
 });
