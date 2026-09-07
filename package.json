@@ -1,6 +1,6 @@
 {
-  "name": "new-web-app",
   "homepage": "https://chizkodem.github.io",
+  "name": "new-web-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
