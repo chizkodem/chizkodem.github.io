@@ -111,7 +111,7 @@ const UploadForm = () => {
     console.log("Uploaded:", gunData);
   };
 
-  console.log(codeValue);
+  // console.log(codeValue);
 
   return (
     <section className="form-container absolute z-20">

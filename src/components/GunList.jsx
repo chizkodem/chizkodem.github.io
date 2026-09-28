@@ -33,6 +33,7 @@ const GunList = ({
   const showGun = (gun) => {
     setSelectedGun(gun);
   };
+  // console.log(guns);
 
   useEffect(() => {
     const unsubscribe = getGuns(async (data) => {
@@ -65,7 +66,7 @@ const GunList = ({
   const handleLoadImage = () => {
     setImageLoaded(true);
   };
-  console.log(imageLoaded);
+  // console.log(imageLoaded);
 
   return (
     <div className="flex justify-center items-center relative mt-2.5 w-full h-full max-h-full py-2.5">
@@ -83,7 +84,7 @@ const GunList = ({
               {/* search bar */}
               <div
                 className="input-wrapper"
-                onBlur={() => setSearchFocus(searchValue ? true : false)}
+                // onBlur={() => setSearchFocus(searchValue ? true : false)}
               >
                 <button className="search-button-icon">
                   <svg
@@ -117,7 +118,7 @@ const GunList = ({
                   value={searchValue}
                   onChange={(e) => setSearchValue(e.target.value)}
                   onBlur={() => {
-                    setSearchFocus(searchValue ? true : false);
+                    // setSearchFocus(searchValue ? true : false);
                     setSearchValue(searchValue ? searchValue : "");
                   }}
                 />
@@ -170,6 +171,7 @@ const GunList = ({
                                 <div class="absolute bottom-5 right-0 h-4 w-4 rounded-full bg-slate-400"></div>
                               </div>
                             )}
+
                             <img
                               src={gun.iconURL.url}
                               alt={gun.gunName}
