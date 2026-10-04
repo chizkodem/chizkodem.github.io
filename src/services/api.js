@@ -5,7 +5,7 @@ import { auth } from "./firebase";
 import { upload } from "@imagekit/javascript";
 
 // Your Render server URL
-const API_URL = "http://localhost:3000";
+const API_URL = "https://api-web-backend-5r9k.onrender.com";
 
 // =========================
 // IMAGEKIT
@@ -40,7 +40,7 @@ export const uploadImage = async (file) => {
 };
 
 export const deleteImage = async (fileId) => {
-  const response = await fetch("http://localhost:3000/api/imagekit/images", {
+  const response = await fetch(`${API_URL}/api/imagekit/images`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
