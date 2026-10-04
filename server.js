@@ -1,39 +1,59 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import cloudinary from "cloudinary";
+import ImageKit from "@imagekit/nodejs";
 
 const app = express();
 
-const { v2 } = cloudinary;
-
-v2.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+const imagekit = new ImageKit({
+  privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
 });
 
 app.use(
   cors({
-    origin: "https://chizkodem.github.io",
+    origin: ["http://localhost:5173", "https://chizkodem.github.io" , "https://chizkodem.xyz"],
   }),
 );
 
 app.use(express.json());
 
-app.delete("/api/images", async (req, res) => {
-  const { publicId } = req.body;
+// ImageKit authentication
+app.get("/api/imagekit-auth", (req, res) => {
+  try {
+    const { token, expire, signature } =
+      imagekit.helper.getAuthenticationParameters();
 
-  console.log("Deleting:", publicId);
+    res.json({
+      token,
+      expire,
+      signature,
+      publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
+    });
+  } catch (error) {
+    console.error("ImageKit auth error:", error);
+
+    res.status(500).json({
+      error: "Failed to generate ImageKit authentication",
+    });
+  }
+});
+
+// Delete ImageKit image
+app.delete("/api/imagekit/images", async (req, res) => {
+  const { fileId } = req.body;
+
+  console.log("Deleting ImageKit image:", fileId);
 
   try {
-    const result = await v2.uploader.destroy(publicId);
+    await imagekit.files.delete(fileId);
 
-    console.log("Cloudinary:", result);
+    console.log("ImageKit: deleted");
 
-    res.json(result);
+    res.json({
+      result: "ok",
+    });
   } catch (error) {
-    console.error("Cloudinary error:", error);
+    console.error("ImageKit error:", error);
 
     res.status(500).json({
       error: error.message,
