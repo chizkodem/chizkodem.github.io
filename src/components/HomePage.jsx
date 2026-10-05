@@ -31,7 +31,7 @@ const HomePage = ({
     Pistol:
       "https://raw.githubusercontent.com/chizkodem/images-storage/aac0a4d2c706806709d0675a2c76fe9e6c6ca7ba/Secondary.svg",
     Extras:
-      "https://res.cloudinary.com/hcy9uyaa/image/upload/v1788768282/Extras.svg",
+      "https://raw.githubusercontent.com/chizkodem/chizkodem.github.io.old/81aa841be71565245706418606878be50e87be5e/public/icons/extras.svg",
   };
   return (
     <>
