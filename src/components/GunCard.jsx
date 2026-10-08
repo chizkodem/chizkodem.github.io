@@ -39,14 +39,14 @@ const GunCard = ({ selectedGun, setSelectedGun, isLoggedIn }) => {
   };
 
   return (
-    <div className=" flex items-center justify-center w-screen transition-all duration-1000 ease">
+    <div className="flex items-center justify-center w-screen h-full transition-all duration-1000 ease">
       <ElectricBorder
         color="#d53954"
         speed={0.4}
         chaos={0.1}
         thickness={2}
         style={{ borderRadius: 16 }}
-        className="text-center w-fit max-w-300 h-fit backdrop-blur-lg"
+        className="text-center w-fit h-fit backdrop-blur-lg"
       >
         {showDeleteButton && (
           <div className="delete-button-box absolute top-[50%] z-10 -translate-y-1/2 backdrop-blur-md w-full h-fit flex items-center justify-center rounded-4xl">
@@ -147,9 +147,10 @@ const GunCard = ({ selectedGun, setSelectedGun, isLoggedIn }) => {
             </div>
           )}
           <div
-            className={`max-w-142 max-h-120 border-4 rounded-2xl border-red-400/50 ${imageLoaded[displayedGun] ? "block" : "hidden"} overflow-y-auto hide-scrollbar`}
+            className={`md:w-170 border-4 rounded-2xl border-red-400/50 ${imageLoaded[displayedGun] ? "block" : "hidden"} overflow-y-auto hide-scrollbar`}
           >
             <img
+              className="w-full"
               src={selectedBuild}
               alt=""
               onClick={() => setSelectedGun(null)}

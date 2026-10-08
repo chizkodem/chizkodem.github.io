@@ -76,10 +76,10 @@ const GunList = ({
         chaos={0.1}
         thickness={2}
         style={{ borderRadius: 16 }}
-        className={"w-full max-w-300 h-fit max-h-full"}
+        className={"w-full max-w-300 h-[60vh]"}
       >
         {!selectedGun && !showMetaList && (
-          <div className="border-2 p-2.5 pb-0 rounded-lg border-red-400 backdrop-blur-sm  min-h-75 max-w-[90vw] min-w-75">
+          <div className="border-2 p-2.5 pb-0 rounded-lg border-red-400 backdrop-blur-sm h-[60vh] min-h-75 max-w-[90vw] min-w-75">
             <div className="flex justify-between items-center mb-3">
               {/* search bar */}
               <div
@@ -147,7 +147,7 @@ const GunList = ({
                     <div className="p-2.5 px-20 text-center border-2 border-red-400 rounded-3xl text-red-200 mb-2.5">
                       <h2>{category}</h2>
                     </div>
-                    <div className="w-full grid grid-cols-3 overflow-y-auto md:grid-cols-4 gap-2.5 p-2.5 max-h-100 justify-center text-[calc(5.5px+1vw)] hide-scrollbar">
+                    <div className="w-full grid grid-cols-3 overflow-y-auto md:grid-cols-4 gap-2.5 p-2.5 max-h-115 justify-center text-[calc(5.5px+1vw)] hide-scrollbar">
                       {Object.entries(guns)
                         .filter(([, gun]) => gun.gunType === category)
                         .filter(([, gun]) =>
@@ -194,7 +194,7 @@ const GunList = ({
         )}
       </ElectricBorder>
       {selectedGun && (
-        <div className="">
+        <div className="h-full flex justify-center items-center">
           <GunCard
             selectedGun={selectedGun}
             setSelectedGun={setSelectedGun}
